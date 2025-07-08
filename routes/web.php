@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,6 +15,8 @@ Route::get('/page/cderc', function () {
     return view('page/abc');
 })->name('page');
 
-Route::get('/parameter/{id}', function () {
-    return view('abc');
+Route::get('//parameter/{id}', function ($id) {
+    return view('abc', ['id' => $id]);
 });
+
+Route::resource("/crud", CrudController::class);
